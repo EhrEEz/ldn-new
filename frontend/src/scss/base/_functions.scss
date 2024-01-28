@@ -1,0 +1,12 @@
+@use "../base/_variables.scss" as *;
+@use "../base/_mixins.scss" as *;
+@use "sass:math";
+@use "sass:color";
+
+@function fontSize($value) {
+	@return calc(#{$value} * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width)));
+}
+
+@function pixie($value) {
+	@return calc(calc(#{$value} / #{$font-size}) * 1rem);
+}

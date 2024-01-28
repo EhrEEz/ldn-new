@@ -1,0 +1,184 @@
+@use "../base/_variables.scss" as *;
+@use "../base/_functions.scss" as *;
+@use "../base/_mixins.scss" as *;
+@use "sass:math";
+@use "sass:color";
+
+// @function fontSize($value) {
+// 	@return calc(#{$value} * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width)));
+// }
+
+// @function pixie($value) {
+// 	@return (#{($value / $font-size) * 1px}+ rem);
+// }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("/assets/fonts/HelveticaNeue-Regular.otf") format("opentype");
+}
+@font-face {
+	font-family: "Helvetica Neue";
+	font-weight: 500;
+	src: url("/assets/fonts/HelveticaNeue-Medium.otf") format("opentype");
+}
+@font-face {
+	font-family: "Helvetica Neue";
+	font-weight: 300;
+	src: url("/assets/fonts/HelveticaNeue-Light.otf") format("opentype");
+}
+@font-face {
+	font-family: "Helvetica Neue";
+	font-weight: 200;
+	src: url("/assets/fonts/HelveticaNeue-Thin.otf") format("opentype");
+}
+
+:root {
+	--ideal-viewport-width: 1728;
+	font-size: 16px;
+	--swiper-pagination-bullet-width: 9px;
+	--swiper-pagination-bullet-height: 9px;
+	--swiper-pagination-bullet-inactive-color: #e7e7e7;
+	--swiper-pagination-bullet-inactive-opacity: 1;
+	--swiper-pagination-bullet-horizontal-gap: 2px;
+	--swiper-theme-color: #{$primary-color};
+	--swiper-pagination-color: #{$primary-color};
+	--button-bg: #{$primary-gradient};
+}
+[data-pagination-theme="dark"] {
+	--swiper-pagination-bullet-width: 9px;
+	--swiper-pagination-bullet-height: 9px;
+	--swiper-pagination-bullet-inactive-color: #{$white};
+	--swiper-pagination-bullet-inactive-opacity: 1;
+	--swiper-pagination-bullet-horizontal-gap: 2px;
+	--swiper-theme-color: #{$white};
+	--swiper-pagination-color: #{$white};
+}
+@media screen and (min-width: 1600px) {
+	:root {
+		--ideal-viewport-width: 2000;
+	}
+}
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: $primary-font;
+	color: $text;
+	font-size: fontSize(16);
+	font-weight: 400;
+
+	::selection {
+		background-color: lightcyan;
+		color: #000;
+	}
+}
+
+textarea {
+	border-color: #ccc;
+
+	&:focus {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		border-color: #ccc;
+		outline: none;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+button {
+	&:focus {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		outline: none;
+	}
+
+	&:active {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+}
+
+.btn {
+	&:focus {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		outline: none;
+	}
+}
+
+.box-shadow-bottom {
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+a {
+	&:hover,
+	&:focus,
+	&:active {
+		color: inherit;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #111;
+	@include transition(all, 0.2s, ease-in-out);
+
+	&:hover {
+		text-decoration: none;
+		// color: $primary-color;
+	}
+}
+
+a {
+	&.links {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		color: $dark !important;
+
+		&:hover {
+			text-decoration: underline;
+			color: $primary-color !important;
+		}
+
+		&--primary {
+			color: $primary-color;
+			text-decoration: underline;
+			text-underline-offset: 3px;
+			text-transform: uppercase;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: $primary-alt;
+			}
+		}
+	}
+}
+
+ul,
+ol {
+	li {
+		font-size: clamp(1rem, 1vw, 1rem);
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+ul.bulleted {
+	list-style-type: disc;
+	list-style-position: inside;
+}

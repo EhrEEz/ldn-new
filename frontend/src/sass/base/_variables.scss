@@ -1,0 +1,76 @@
+@use "sass:color";
+
+$font-size: 12px;
+$btn-border-radius: 0.5em;
+$gap-offset: 0.75em;
+$sizes: (
+	xxl: 10rem,
+	xl: 8rem,
+	lg: 6rem,
+	md: 4rem,
+	ms: 2rem,
+	sm: 1rem,
+	xs: 0.5rem,
+);
+// Colors
+$body-bg: #f8fafc;
+$primary-color: #5f009a;
+$primary-light: #e0eeff;
+$secondary-color: #00aad2;
+$bg-grey: #767676;
+$border-color: #999;
+$navy-blue: #002c5f;
+$text-color: #000;
+$dark-bg: rgb(28, 27, 27);
+$clr-bg: rgba(0, 0, 0, 0.05);
+$error-color: #dc2b0c;
+$success-color: #0f996d;
+$warning-color: yellow;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0bd;
+$cyan: #6cb2eb;
+$grey: #aeaeae;
+$cream: #f6eee3;
+$white: #ffffff;
+$black: #000000;
+
+// Typography
+$primary-font: "Inter", sans-serif;
+$lt-text: #7e7e7e;
+
+//Calculated
+$primary-dark: color.scale($primary-color, $lightness: -10%);
+$primary-lighter: color.scale($primary-color, $lightness: 20%);
+$primary-light-darker: color.scale($primary-light, $lightness: -2%);
+$primary-pastel: color.scale($primary-color, $lightness: 50%);
+$primary-tint: color.scale($primary-color, $lightness: 80%);
+
+$secondary-dark: color.scale($secondary-color, $lightness: -20%);
+$secondary-pastel: color.scale($secondary-color, $lightness: 50%);
+$secondary-tint: color.scale($secondary-color, $lightness: 80%);
+
+$error-dark: color.scale($error-color, $lightness: -20%);
+$error-pastel: color.scale($error-color, $lightness: 50%);
+$error-tint: color.scale($error-color, $lightness: 80%);
+
+$success-dark: color.scale($success-color, $lightness: -20%);
+$success-pastel: color.scale($success-color, $lightness: 50%);
+$success-tint: color.scale($success-color, $lightness: 80%);
+
+$warning-dark: color.scale($warning-color, $lightness: -20%);
+$warning-pastel: color.scale($warning-color, $lightness: 50%);
+$warning-tint: color.scale($warning-color, $lightness: 80%);
+
+%icon {
+	font-family: "tabler-icons";
+	font-size: 1.25em;
+}

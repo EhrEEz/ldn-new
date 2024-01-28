@@ -1,0 +1,19 @@
+@use "../base/helper" as *;
+@use "../base/mixins" as *;
+@use "../base/base" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
+@use "../base/functions" as *;
+
+.no-scroll {
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	:root {
+		--inline-offset: 200px;
+	}
+}

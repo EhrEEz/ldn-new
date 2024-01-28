@@ -1,0 +1,142 @@
+@use "../base/_variables.scss" as *;
+@use "../base/_helper" as *;
+@use "../base/_typography.scss" as *;
+@use "../base/_mixins.scss" as *;
+
+%icon-round {
+	font-family: "Material Icons Round";
+	font-weight: 400;
+}
+%icon-outlined {
+	font-family: "Material Icons Outlined";
+	font-weight: 400;
+}
+%icon-sharp {
+	font-family: "Material Icons Sharp";
+	font-weight: 400;
+}
+%icon-two-tone {
+	font-family: "Material Icons Two Tone";
+	font-weight: 400;
+}
+%icon {
+	font-family: "Material Icons";
+	font-weight: 400;
+}
+%symbol-round {
+	font-family: "Material Symbols Rounded";
+	font-weight: 300;
+}
+%no-scroll {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	& {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
+
+.demo-wrapper {
+	padding: 1.5em;
+	outline: 1px solid #000;
+	border-radius: 7px;
+	margin-block: 1em;
+}
+
+.demo-code {
+	background: #000;
+	padding: 1em;
+	border-radius: 7px;
+	margin-bottom: 1em;
+
+	pre {
+		color: rgb(180, 208, 232);
+	}
+}
+
+.df-input-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+	margin-block: 1em;
+}
+
+.df-input-wrapper {
+	input,
+	select,
+	textarea {
+		padding-inline: var(--inp-padding-x, 1em);
+		padding-block: var(--inp-padding-y, 0.5em);
+		border: var(--inp-border-width, 1px) solid var(--inp-border-color, transparent);
+		color: var(--inp-color, #2b2b2b);
+		border-radius: var(--inp-border-radius, 7px);
+		background-color: var(--inp-background-color, #00000011);
+		width: 100%;
+		&:not(:placeholder-shown),
+		&:focus-within {
+			background: var(--inp-focus-background, #0000000a);
+			border-color: var(--inp-focus-border-color, transparent);
+		}
+		&::placeholder {
+			color: var(--inp-placeholder-color, #777777);
+		}
+	}
+	.error-message {
+		visibility: hidden;
+		opacity: 0;
+		transition: var(--transition-duration, 0.2s);
+	}
+
+	&.error {
+		.error-message {
+			visibility: visible;
+			opacity: 1;
+		}
+		.input-box {
+			position: relative;
+			&:after {
+				position: absolute;
+				content: "\e000";
+				@extend %icon;
+				top: 50%;
+				right: var((--inp-padding-x), 1em);
+				color: var(--inp-error-color, red);
+				font-size: 1.25em;
+				transform: translateY(-50%);
+			}
+		}
+		.error-message {
+			font-size: var(--inp-error-message-size, 0.9em);
+			color: var(--inp-error-color, red);
+		}
+		input,
+		select,
+		textarea {
+			padding-right: var((--inp-padding-x), 1em);
+			border-color: var(--inp-error-color, red);
+			color: var(--inp-error-text-color, --inp-error-color, rgb(186, 0, 0));
+			background-color: transparent;
+		}
+		option {
+			color: var(--inp-color, #2b2b2b);
+		}
+	}
+}
+
+.df-input-wrapper {
+	--inp-padding-x: 1em;
+	--inp-padding-y: 0.5em;
+	--inp-border-width: 1px;
+	--inp-border-radius: 7px;
+	--inp-border-color: transparent;
+	--inp-color: #2b2b2b;
+	--inp-background-color: #00000011;
+	--inp-focus-background: #0000000a;
+	--inp-focus-border-color: transparent;
+	--inp-placeholder-color: #777777;
+	--transition-duration: 0.2s;
+	--inp-error-message-size: 0.9em;
+	--inp-error-color: red;
+	--inp-error-text-color: rgb(186, 0, 0);
+}
