@@ -1,0 +1,208 @@
+@use "../base/mixins" as *;
+@use "../base/functions" as *;
+@use "../base/variables" as *;
+
+:root {
+	--nav-bg: #{$white};
+	--nav-text: #{$text};
+	--nav-font-size: #{fontSize(12.5)};
+	--nav-padding-block: 1rem;
+	--nav-active-color: #{$primary-color};
+	--nav-hover-color: #{$primary-alt};
+}
+
+.nav-main {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+
+	&.nav-main {
+		background-color: var(--nav-bg, #{$white});
+		padding-block: var(--nav-padding-block);
+	}
+	&.clear {
+		--nav-bg: transparent;
+		--nav-text: #{$white};
+		--nav-active-color: #{$white};
+		--nav-hover-color: #{transparentize($white, 0.5)};
+		.btn--primary {
+			color: $text;
+			background: transparentize($white, 0.3);
+
+			&:hover {
+				background: $white;
+			}
+		}
+		.primary--logo {
+			opacity: 0;
+			transition: 0.2s ease-in-out;
+		}
+		.clear--logo {
+			opacity: 1;
+			transition: 0.2s ease-in-out;
+		}
+	}
+	.primary--logo {
+		opacity: 1;
+		transition: 0.2s ease-in-out;
+	}
+	.clear--logo {
+		opacity: 0;
+		transition: 0.2s ease-in-out;
+	}
+}
+
+.nav {
+	&--wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&--logo {
+		height: 2.5rem;
+		width: fit-content;
+		position: relative;
+		.clear--logo {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			inset: 0;
+		}
+		&-wrapper {
+			width: fit-content;
+		}
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+	&--rt__wrapper {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+	&__links {
+		&--wrapper {
+			display: flex;
+			gap: 2rem;
+		}
+		&--item {
+			position: relative;
+		}
+		&--link {
+			background-color: transparent;
+			outline: none !important;
+			border: none !important;
+			font-size: var(--nav-font-size);
+			color: var(--nav-text);
+			font-weight: 400;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			position: relative;
+			&:hover {
+				color: var(--nav-hover-color, #{$primary-alt});
+				&:after {
+					opacity: 0.5;
+					scale: 1;
+					transition: opacity 0.2s ease-in-out;
+				}
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 102%;
+				left: 50%;
+				width: 0.3em;
+				aspect-ratio: 1;
+				border-radius: 100%;
+				background-color: var(--nav-active-color, #{$primary-color});
+				transform: translateX(-50%);
+				opacity: 0;
+				scale: 0;
+				transition: all 0.2s ease-in-out;
+			}
+			&.active,
+			&.current-page {
+				--nav-text: var(--nav-active-color, #{$primary-color});
+				--nav-hover-color: var(--nav-active-color, #{$primary-color});
+				&:after {
+					transition: all 0.2s ease-in-out;
+					opacity: 1;
+					scale: 1;
+				}
+			}
+		}
+	}
+	&__sublist {
+		&--wrapper {
+			position: absolute;
+			bottom: -1rem;
+			left: 50%;
+			transform: translate(-50%, 100%) scale(0.3);
+			width: 40rem;
+			border-radius: var(--nav-sub-border-radius, 25px);
+			box-shadow: 0 0.5em 1em 0.25em rgba(0 0 0 / 3%);
+			padding: 2em 2.5em;
+			background-color: var(--nav-sub-background, #{$white});
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.1s ease-in-out, transform 0.2s ease-in-out;
+			transform-origin: top center;
+			&.show {
+				visibility: visible;
+				opacity: 1;
+				transform: translate(-50%, 100%) scale(1);
+				transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+			}
+		}
+		&--title {
+			margin-bottom: 0.5em;
+			color: var(--nav-sub-header-color, #{$primary-alt});
+		}
+		&--category {
+			&-list {
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+				font-size: fontSize(14);
+				gap: 0.5em;
+				margin-bottom: 1em;
+			}
+			&-title {
+				font-size: fontSize(10);
+				color: var(--nav-sub-category-title, #{$grey-70});
+				user-select: none;
+				margin-bottom: 0.5em;
+			}
+
+			&-link {
+				font-size: fontSize(14);
+				line-height: 1.4;
+				display: block;
+				color: var(--nav-sub-category-item, #{$grey});
+
+				&:hover {
+					color: var(--nav-sub-category-item-hover, #{$text});
+				}
+			}
+		}
+	}
+}
+@supports (backdrop-filter: blur(2rem)) {
+	nav.nav-main {
+		background-color: transparentize($color: $white, $amount: 0.1);
+		backdrop-filter: blur(0.5rem) saturate(1.58);
+		transition: 0.2s ease-in-out;
+	}
+	nav.nav-main.clear {
+		background-color: transparent;
+		backdrop-filter: none;
+		transition: 0.2s ease-in-out;
+	}
+}
+.lt-line {
+	border-left: 1px solid #{$grey-50};
+	padding-left: 2em;
+}

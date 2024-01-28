@@ -1,0 +1,52 @@
+@use 'sass:color';
+
+$font-size: 16px;
+$btn-border-radius: 10px;
+$gap-offset: 0.75em;
+$sizes: (
+	xxl: 10rem,
+	xl: 8rem,
+	lg: 6rem,
+	md: 4rem,
+	ms: 2rem,
+	sm: 1rem,
+	xs: 0.5rem
+);
+// Colors
+$primary-color: #564787;
+$primary-alt: #1977b8;
+$primary-gradient: linear-gradient(90.12deg, #1283b9 0.83%, #015e8d 99.9%);
+
+$white: #ffffff;
+$white-75: transparentize(#ffffff, $amount: 0.25);
+
+$grey-70: #a6a8ab;
+$grey: #717077;
+$grey-50: #dbdbdb;
+$grey-10: #f3f4f4;
+$black: #383838;
+$text: #383838;
+$dark: #000000;
+
+$success-hover: #018a3a;
+$success: #009c41;
+$success-stroke: #a6c2b2;
+$success-bg: #e5fff0;
+$error: #e10000;
+$error-stroke: #ffcdcd;
+$error-bg: #fff9f9;
+$neutral: #866205;
+
+$orange-1: #d75e1d;
+$orange-2: #f68a26;
+$orange-3: #f68a26;
+
+$green-1: #566b1e;
+$green-2: #5fa425;
+$green-3: #c2cb3c;
+
+$indigo-1: #7da9ac;
+$indigo-2: #91def9;
+
+// Typography
+$primary-font: 'Helvetica Neue', sans-serif;

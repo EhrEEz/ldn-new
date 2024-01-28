@@ -1,0 +1,92 @@
+.heading-1 {
+	font-weight: 500;
+	font-size: clamp(1.9rem, 2.9vw, 3.9rem);
+	line-height: 1em;
+	&.lt {
+		font-weight: 400;
+	}
+}
+.heading-2 {
+	line-height: 1em;
+	font-weight: 500;
+	font-size: clamp(1.35rem, 1.9vw, 2.7rem);
+	&.lt {
+		font-weight: 400;
+	}
+}
+.heading-5 {
+	font-size: clamp(1rem, 1vw, 1.5rem);
+	line-height: 1em;
+	font-weight: 500;
+	&.lt {
+		font-weight: 400;
+	}
+}
+.heading-6 {
+	font-size: clamp(1rem, 1vw, 1.25rem);
+	line-height: 1em;
+	font-weight: 500;
+	&.lt {
+		font-weight: 400;
+	}
+}
+.heading-4 {
+	font-size: clamp(1rem, 1.25vw, 1.5rem);
+	line-height: 1em;
+	font-weight: 500;
+	&.lt {
+		font-weight: 400;
+	}
+}
+.heading-3 {
+	font-size: clamp(1.6rem, 2vw, 3rem);
+	line-height: 1em;
+	font-weight: 500;
+	&.lt {
+		font-weight: 400;
+	}
+}
+.med-14 {
+	font-size: clamp(0.9rem, 0.9vw, 1.2rem);
+	font-weight: 500;
+}
+.regular-14 {
+	font-size: clamp(0.9rem, 0.9vw, 1.2rem);
+}
+.med-20 {
+	font-weight: 500;
+	font-size: clamp(1.3rem, 1.3vw, 1.8rem);
+}
+.med-58 {
+	font-size: clamp(3.9rem, 3.7vw, 5.1rem);
+	line-height: 1;
+	font-weight: 500;
+}
+
+.regular-16 {
+	font-size: clamp(0.9rem, 1.1vw, 1.5rem);
+}
+.normal-16 {
+	font-size: clamp(0.9rem, 1.1vw, 1.5rem);
+}
+.med-16 {
+	line-height: 1;
+	font-weight: 500;
+	font-size: clamp(0.9rem, 1.1vw, 1.5rem);
+}
+.bold-16 {
+	line-height: 1;
+	font-weight: 600;
+	font-size: clamp(0.9rem, 1.1vw, 1.5rem);
+}
+
+@media screen and (min-width: 768px) {
+	.regular-16 {
+		line-height: 1.75em;
+	}
+}
+
+.regular-20 {
+	font-size: clamp(1.3rem, 1.3vw, 1.8rem);
+	line-height: 1.75em;
+}

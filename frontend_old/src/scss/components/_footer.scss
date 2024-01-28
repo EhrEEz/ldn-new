@@ -1,0 +1,49 @@
+@use "../base/mixins" as *;
+@use "../base/functions" as *;
+@use "../base/variables" as *;
+
+:root {
+	--footer-background: #000;
+	--footer-color: #{$white};
+}
+
+footer {
+	background-color: var(--footer-background, #000);
+	color: var(--footer-color, #{$white});
+
+	a {
+		color: var(--footer-color, #{$white});
+
+		&:hover {
+			color: var(--footer-color, #{$white});
+		}
+	}
+}
+
+.footer {
+	&__contact {
+		&--links {
+			color: #{$white-75};
+		}
+	}
+	&__title {
+		text-transform: uppercase;
+		margin-bottom: 1.25em;
+	}
+	&__links {
+		&--list {
+			margin-bottom: 2em;
+		}
+		&--item {
+			margin-bottom: 0.25em;
+		}
+		&--link {
+			color: #{$white-75};
+		}
+	}
+	&__legal {
+		&-link {
+			color: #{$white-75};
+		}
+	}
+}

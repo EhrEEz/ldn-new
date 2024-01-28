@@ -1,0 +1,62 @@
+@use './mixins' as *;
+@use './functions' as *;
+@use './variables' as *;
+$fontSizes: (
+	regular: (
+		400: (
+			10,
+			12,
+			14,
+			16,
+			20,
+			24,
+			36,
+			40,
+			48,
+			96
+		)
+	),
+	med: (
+		500: (
+			20,
+			24,
+			16,
+			36,
+			96
+		)
+	),
+	light: (
+		300: (
+			10,
+			16,
+			20
+		)
+	),
+	heading: (
+		600: (
+			24,
+			45,
+			64,
+			48,
+			40,
+			32,
+			36,
+			28
+		)
+	)
+);
+
+@each $name, $mode in $fontSizes {
+	@each $weight, $sizes in $mode {
+		@each $size in $sizes {
+			.#{$name}-#{$size} {
+				font-size: fontSize($size);
+				font-weight: $weight;
+			}
+		}
+	}
+}
+
+p {
+	line-height: 152%;
+}
